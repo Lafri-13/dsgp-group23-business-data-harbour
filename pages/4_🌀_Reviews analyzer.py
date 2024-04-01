@@ -128,7 +128,7 @@ option = st.selectbox(
         'Give me the positive watch reviews for a watch type equal to smart',
         'Negative watch reviews for a watch type equal to field',
         'Negative watch reviews for a watch type equal to formal',
-        'Nositive watch reviews for a watch type equal to digital',
+        'Negative watch reviews for a watch type equal to digital',
         'Negative watch reviews for a watch type equal to smart'
     ), index=None, placeholder='Try some default prompts to start out')
 
