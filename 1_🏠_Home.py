@@ -58,6 +58,10 @@ if authentication_status:
     st.subheader("🔥 Decisions:")
     st.text("> Analyse Customer plots ")
     st.text("> Analyze Customer segments using kmeans and Vector database")
+    st.write("")
+    st.write("")
+    st.subheader("🖼️ Content Generator:")
+    st.text("> Generate tailor made content ")
     #authenticator.logout("Logout", "sidebar")
 
 
