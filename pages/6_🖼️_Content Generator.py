@@ -4,14 +4,11 @@ from diffusers.utils import export_to_video, export_to_gif
 import torch
 import tempfile
 import os
-from PIL import Image
-import io
-from huggingface_hub import hf_hub_download
-from safetensors.torch import load_file
 
 # ======================================= Content Generation Method Definitions =======================================
 
 def text_to_image(prompt, negative_prompt, num_inference_steps=50):
+    # Create an instance of the StableDiffusion pipeline (one-time for efficiency)
     pipe = StableDiffusionPipeline.from_pretrained("CompVis/stable-diffusion-v1-4")
     generation_inputs = {
         "prompt": prompt,
