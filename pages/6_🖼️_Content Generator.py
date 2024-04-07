@@ -24,7 +24,6 @@ def text_to_image(prompt, negative_prompt, num_inference_steps=50):
 # =====================================================================================================================
 
 def image_to_image(prompt, uploaded_image=None, strength=0.75, guidance_scale=2.5, num_inference_steps=50):
-    # Define the pipeline and scheduler
     pipe = StableDiffusionPipeline.from_pretrained("CompVis/stable-diffusion-v1-4")
     scheduler = DDIMScheduler(beta_start=0.00085, beta_end=0.012, beta_schedule="scaled_linear")
 
@@ -55,8 +54,8 @@ def image_to_image(prompt, uploaded_image=None, strength=0.75, guidance_scale=2.
 
 # =====================================================================================================================
     
-def text_to_video(prompt, negative_prompt):
-    device = "cuda"
+def text_to_video(prompt):
+    device = "cuda" if torch.cuda.is_available() else "cpu"
     dtype = torch.float16
 
     step = 4
@@ -65,12 +64,15 @@ def text_to_video(prompt, negative_prompt):
     base = "emilianJR/epiCRealism"
 
     adapter = MotionAdapter().to(device, dtype)
-    adapter.load_state_dict(load_file(hf_hub_download(repo ,ckpt), device=device))
+    adapter.load_state_dict(load_file(hf_hub_download(repo, ckpt), device=device))
     pipe = AnimateDiffPipeline.from_pretrained(base, motion_adapter=adapter, torch_dtype=dtype).to(device)
     pipe.scheduler = EulerDiscreteScheduler.from_config(pipe.scheduler.config, timestep_spacing="trailing", beta_schedule="linear")
 
-    output = pipe(prompt="A girl smiling", guidance_scale=1.0, num_inference_steps=step)
-    export_to_gif(output.frames[0], "animation.gif")
+    output = pipe(prompt=prompt, guidance_scale=1.0, num_inference_steps=step)
+    gif_filename = "animation.gif"
+    export_to_gif(output.frames[0], gif_filename)
+    
+    return gif_filename
 
 def show_form(content_option):
     # ======================================= Text to Image =======================================
@@ -106,10 +108,9 @@ def show_form(content_option):
     elif content_option == "Text to Video":
         with st.form("text_to_image"):
             prompt = st.text_input("Please enter your prompt :")
-            negative_prompt = st.text_input("Please enter your negative prompt :")
             submit_text_to_video = st.form_submit_button("Generate Video")
             if submit_text_to_video:
-                st.image(text_to_video(prompt, negative_prompt))
+                st.image(text_to_video(prompt)) # st.image() is used since the GIF format is supported by image and not video
 
     # ======================================= No Option Selected =======================================
     else:
@@ -148,5 +149,3 @@ def image_resize_and_converter(image, width, height):
     return resized_image
 
 show_form(selected_form)
-
-
