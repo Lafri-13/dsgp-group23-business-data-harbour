@@ -2,9 +2,9 @@
 
 Built an AI-powered marketing assistant for Sri Lankan watch entrepreneurs.
 
-# 🔎 1. What Problem Did You Solve?
+# 🔎 1. What Problem Did this project Solve?
 
-You identified that:
+Identified that:
 
 * Small entrepreneurs don’t know how to:
 
@@ -15,7 +15,7 @@ You identified that:
 * Large companies use data science and AI.
 * Small businesses don’t have access to those tools.
 
-So your goal was:
+So the goal was:
 
 > Build one intelligent web system that helps business owners make data-driven marketing decisions before launching a product.
 
@@ -36,15 +36,11 @@ All inside one system.
 
 ---
 
-# 🏗 3. What Are the Main Components You Built?
-
-Let’s go component by component.
-
----
+# 🏗 3. What Are the Main Components Built?
 
 ## 1️⃣ Customer Segmentation (Clustering Customers)
 
-You used machine learning (mainly **K-Means clustering**) to:
+Used machine learning (mainly **K-Means clustering**) to:
 
 * Group customers based on:
 
@@ -57,7 +53,7 @@ You used machine learning (mainly **K-Means clustering**) to:
 📌 Why?
 So businesses can target the right group instead of marketing to everyone.
 
-You also evaluated clustering using:
+Evaluated clustering using:
 
 * Silhouette score
 * WCSS
@@ -69,7 +65,7 @@ So this part is pure **unsupervised ML + evaluation**.
 
 ## 2️⃣ Sentiment Analysis on Reviews
 
-You collected customer reviews and analyzed:
+Collected customer reviews and analyzed:
 
 * Positive
 * Negative
@@ -79,7 +75,7 @@ Why?
 
 Because 88%+ of people read reviews before buying.
 
-So instead of manually reading reviews, your system:
+So instead of manually reading reviews, the system:
 
 * Automatically analyzes customer emotions
 * Identifies strengths and weaknesses of competitors
@@ -90,11 +86,9 @@ This helps business owners improve their product.
 
 ## 3️⃣ Vector Database + Embeddings
 
-This is one of your strongest technical contributions.
+This is one of the strongest technical contributions.
 
 Instead of using a normal database:
-
-You:
 
 * Converted product data into embeddings
 * Stored them inside a vector database (FAISS)
@@ -114,7 +108,7 @@ Problem:
 LLMs hallucinate and don’t know company-specific data.
 
 Solution:
-You used RAG.
+Used RAG.
 
 Flow:
 
@@ -124,15 +118,12 @@ Flow:
 4. That data is given to LLM
 5. LLM generates grounded answer
 
-So your chatbot is **context-aware** and not generic.
+So the chatbot is **context-aware** and not generic.
 
-That is a very strong architectural decision 👏
-
----
 
 ## 5️⃣ AI Chatbot Interface
 
-You built a chatbot where:
+Built a chatbot where:
 
 Users can ask:
 
@@ -149,7 +140,7 @@ This makes it user-friendly for non-technical stakeholders.
 
 ## 6️⃣ AI Image Generation for Ads
 
-You integrated image generation (diffusion-based models like DALL·E type systems).
+Integrated image generation (diffusion-based models like DALL·E type systems).
 
 Based on customer cluster, the system can:
 
@@ -162,15 +153,13 @@ This is creative AI applied to marketing.
 
 # 📊 4. Data Collection
 
-You:
-
 * Conducted surveys (questionnaire)
 * Collected demographic data
 * Collected watch preferences
 * Scraped product & review data
 * Combined qualitative + quantitative research
 
-You used:
+Used:
 
 * Pragmatism research philosophy
 * Mixed methods approach
@@ -183,7 +172,7 @@ So academically, it is properly structured.
 
 # 🏛 5. System Architecture (High-Level Flow)
 
-Here’s what your system does step-by-step:
+Here’s what the system does step-by-step:
 
 1. Product & review data collected
 2. Data stored in:
@@ -207,7 +196,7 @@ So this is a full AI pipeline system.
 
 # 🧪 6. Testing & Evaluation
 
-You tested:
+Tested:
 
 * Clustering performance
 * Model accuracy
@@ -218,16 +207,14 @@ You tested:
 * Scalability
 * Security
 
-You also did:
+also did:
 
 * Self evaluation
 * Stakeholder evaluation
 
-This makes it a complete academic project.
-
 ---
 
-# 🎯 7. What Is Your Real Contribution?
+# 🎯 7. Contribution
 
 Technically:
 
@@ -246,7 +233,7 @@ Domain-wise:
 
 # 💡 In One Powerful Summary
 
-Your project is:
+This project is:
 
 > An AI-powered intelligent marketing decision support system that combines customer segmentation, sentiment analysis, vector databases, retrieval-augmented generation, and AI image generation to help Sri Lankan watch entrepreneurs make data-driven product and marketing decisions.
 
